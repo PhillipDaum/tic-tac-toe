@@ -1,5 +1,4 @@
 :root {
-    /* change room and body background color */
     --font-main: "Roboto Mono", monospace;
     --board-background: #a3e8ff;
     --cell-background: #DDFFD9;
@@ -12,7 +11,7 @@
   align-items: center;
 }
 
-.game-board {
+.game-board section {
   display: grid;
   gap: .333rem;
   margin: auto;
@@ -34,4 +33,11 @@
     width: 5rem;
     height: 5rem;
     border: 1px solid grey;
+}
+
+.empty {
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
 }
