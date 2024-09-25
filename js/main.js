@@ -31,10 +31,10 @@ const assignSymbols = (s) => {
         isHumanTurn = false;
         // prolly need to other stuff per instructions
         console.log("waiting....")
-        setTimeout(() => {computerTurn(gameBoard)}, 1500)/// why do I need the arrow? 
+        setTimeout(() => {computerTurn(gameBoard)}, 1500);
     }
 }
-// user can select symbol, calls functions to make gameboard and assign symbols, removes state 1
+// user can select symbol, calls functions to make gameboard and assign symbols, removes state 1, calls state 2
 const onFormSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -46,7 +46,7 @@ const onFormSubmit = (e) => {
         assignSymbols(dataObject.humanSymbol)
     }
 }
-
+// builds the thing to 
 const showSymbolPicker = () => {
     let form = document.createElement('form');
     form.id = "form";
@@ -65,7 +65,7 @@ const showSymbolPicker = () => {
     let button = document.createElement('button');
     button.type = 'submit';
     button.id = "submit";
-    button.innerText = "Let's GOOOOOOOO";
+    button.innerText = "Let's GOOOOOOOO"; // change to match
     form.appendChild(button)
     form.addEventListener("submit", onFormSubmit)
 }
@@ -73,8 +73,8 @@ const showSymbolPicker = () => {
 
 // STATE 2 - play the game
 const checkWinningSets = (symbol, arr, twoDimArr) => {
-    // make a mini arr with indecies of symbol from gameBoard
-    let checkMe = arr.map((x, i) => x === symbol ? i : -1); // better way to do this? // there is a way. 
+    // make a mini arr with indices of symbol from gameBoard
+    let checkMe = arr.map((x, i) => x === symbol ? i : -1); // better way to do this? // there is a way. // this one is ok
     checkMe = checkMe.filter((x) => x >= 0);
     // change this to running the announce winner function
     // and change the winner thing to true;
@@ -87,16 +87,13 @@ const computerTurn = (arr) => {
     // make new array with indecies of empty spots
     let openSpots = arr.map((x, i) => x === "" ? i : -1);
     openSpots = openSpots.filter((x) => x >= 0);
-    console.log("open spots", openSpots)
     // computer picks a random one of these
     let computerChoice = openSpots[Math.floor(Math.random() * openSpots.length)];
-    console.log("it's choice", computerChoice)
     // splices it into the array
     gameBoard.splice(computerChoice, 1, computerSymbol);
     // refresh the gameboard from the gameboard 
     refreshGameBoard(gameBoard);
     // checkWinningSets(computerSymbol, gameBoard, winningCombos);
-    console.log(computerSymbol)
     if (winner === false && isHumanTurn === false) {
         isHumanTurn = true;
     }
@@ -135,9 +132,9 @@ const makeBoard = (arr) => {
 
 
 
-
 const gameplay = () => {
     showSymbolPicker()
     // put the other functions in here
+    // maybe do onload instead ?
 }
 gameplay()
