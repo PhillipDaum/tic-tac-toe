@@ -65,7 +65,7 @@ const showSymbolPicker = () => {
     let button = document.createElement('button');
     button.type = 'submit';
     button.id = "submit";
-    button.innerText = "Let's GOOOOOOOO"; // change to match
+    button.innerText = "New game (vs cpu)"; // change to match
     form.appendChild(button)
     form.addEventListener("submit", onFormSubmit)
 }

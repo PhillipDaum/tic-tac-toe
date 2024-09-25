@@ -1,15 +1,88 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 :root {
-    --font-main: "Roboto Mono", monospace;
-    --board-background: #a3e8ff;
-    --cell-background: #DDFFD9;
+  /* colors */
+    --light-blue: #31C3BD;
+    --light-blue-hover: #65E9E4;
+    --light-yellow: #F2B137;
+    --light-yellow-hover: #FFC860;
+    --dark-navy: #1A2A33; /* background */
+    --semi-dark-navy: #1F3641; 
+    --silver: #A8BFC9;
+    --silver-hover: #DBE8ED;
 }
 
+/* apply uppercase to whole body */
+body {
+  text-transform: uppercase;
+  font-family: outfit;
+}
+
+/* maybe take this off */
 .game-wrapper {
   display: flex;
   height: 100vh;
   flex-direction: column;
   align-items: center;
 }
+
+/* radio buttons to toggle switch */
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 6rem;
+  height: 3rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--dark-navy);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  /* content: "X"; This or other way  */
+  height: 2rem; /* set  */
+  width: 2rem; /* set  */
+  left: .2rem;
+  bottom: .2rem;
+  background-color: var(--silver-hover);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--dark-navy);
+}
+
+/* input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+} */
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+
 
 .game-board section {
   display: grid;
@@ -32,7 +105,6 @@
     flex-direction: column;
     width: 5rem;
     height: 5rem;
-    border: 1px solid grey;
 }
 
 .empty {
